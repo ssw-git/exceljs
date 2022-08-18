@@ -1,24 +1,24 @@
-const fs = require('fs');
+const fs = require("react-native-level-fs");
 
-const testXformHelper = require('../test-xform-helper');
+const testXformHelper = require("../test-xform-helper");
 
-const SharedStringsXform = verquire('xlsx/xform/strings/shared-strings-xform');
+const SharedStringsXform = verquire("xlsx/xform/strings/shared-strings-xform");
 
 const expectations = [
   {
-    title: 'Shared Strings',
+    title: "Shared Strings",
     create() {
       return new SharedStringsXform();
     },
-    preparedModel: require('./data/sharedStrings.json'),
+    preparedModel: require("./data/sharedStrings.json"),
     xml: fs.readFileSync(`${__dirname}/data/sharedStrings.xml`).toString(),
     get parsedModel() {
       return this.preparedModel;
     },
-    tests: ['render', 'renderIn', 'parse'],
-  },
+    tests: ["render", "renderIn", "parse"]
+  }
 ];
 
-describe('SharedStringsXform', () => {
+describe("SharedStringsXform", () => {
   testXformHelper(expectations);
 });

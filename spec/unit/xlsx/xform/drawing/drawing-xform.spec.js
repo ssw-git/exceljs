@@ -1,34 +1,34 @@
-const fs = require('fs');
+const fs = require("react-native-level-fs");
 
-const testXformHelper = require('../test-xform-helper');
+const testXformHelper = require("../test-xform-helper");
 
-const DrawingXform = verquire('xlsx/xform/drawing/drawing-xform');
+const DrawingXform = verquire("xlsx/xform/drawing/drawing-xform");
 
 const options = {
   rels: {
-    rId1: {Target: '../media/image1.jpg'},
-    rId2: {Target: '../media/image2.jpg'},
+    rId1: {Target: "../media/image1.jpg"},
+    rId2: {Target: "../media/image2.jpg"}
   },
   mediaIndex: {image1: 0, image2: 1},
-  media: [{}, {}],
+  media: [{}, {}]
 };
 
 const expectations = [
   {
-    title: 'Drawing 1',
+    title: "Drawing 1",
     create() {
-      return new DrawingXform({tag: 'xdr:from'});
+      return new DrawingXform({tag: "xdr:from"});
     },
-    initialModel: require('./data/drawing.1.0.js'),
-    preparedModel: require('./data/drawing.1.1.js'),
+    initialModel: require("./data/drawing.1.0.js"),
+    preparedModel: require("./data/drawing.1.1.js"),
     xml: fs.readFileSync(`${__dirname}/data/drawing.1.2.xml`).toString(),
-    parsedModel: require('./data/drawing.1.3.js'),
-    reconciledModel: require('./data/drawing.1.4.js'),
-    tests: ['prepare', 'render', 'renderIn', 'parse', 'reconcile'],
-    options,
-  },
+    parsedModel: require("./data/drawing.1.3.js"),
+    reconciledModel: require("./data/drawing.1.4.js"),
+    tests: ["prepare", "render", "renderIn", "parse", "reconcile"],
+    options
+  }
 ];
 
-describe('DrawingXform', () => {
+describe("DrawingXform", () => {
   testXformHelper(expectations);
 });

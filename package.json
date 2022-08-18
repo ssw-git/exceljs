@@ -16,13 +16,7 @@
     "node": ">=8.3.0"
   },
   "main": "./excel.js",
-  "browser": {
-    "./excel.js": "./dist/exceljs.min.js",
-    "fs": "react-native-level-fs"
-  },
-  "react-native": {
-    "fs": "react-native-level-fs"
-  },
+  "browser": "./dist/exceljs.min.js",
   "types": "./index.d.ts",
   "files": [
     "dist",
@@ -110,7 +104,8 @@
     "saxes": "^5.0.1",
     "tmp": "^0.2.0",
     "unzipper": "^0.10.11",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "react-native-level-fs": "3.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",

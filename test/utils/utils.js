@@ -1,13 +1,13 @@
-const fs = require('fs');
-const _ = require('../../lib/utils/under-dash.js');
+const fs = require("react-native-level-fs");
+const _ = require("../../lib/utils/under-dash.js");
 
 const main = {
   cleanDir(path) {
     const deferred = Promise.defer();
 
-    const remove = function(file) {
+    const remove = function (file) {
       const myDeferred = Promise.defer();
-      const myHandler = function(err) {
+      const myHandler = function (err) {
         if (err) {
           myDeferred.reject(err);
         } else {
@@ -38,7 +38,7 @@ const main = {
         deferred.reject(err);
       } else {
         const promises = [];
-        _.each(files, file => {
+        _.each(files, (file) => {
           promises.push(remove(`${path}/${file}`));
         });
 
@@ -46,7 +46,7 @@ const main = {
           .then(() => {
             deferred.resolve();
           })
-          .catch(error => {
+          .catch((error) => {
             deferred.reject(error);
           });
       }
@@ -59,12 +59,12 @@ const main = {
     length = length || 5;
     const text = [];
     const possible =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for (let i = 0; i < length; i++)
       text.push(possible.charAt(Math.floor(Math.random() * possible.length)));
 
-    return text.join('');
+    return text.join("");
   },
   randomNum(d) {
     return Math.round(Math.random() * d);
@@ -83,9 +83,9 @@ const main = {
         i += r;
         r = 3;
       }
-      return a.join(',');
-    },
-  },
+      return a.join(",");
+    }
+  }
 };
 
 module.exports = main;

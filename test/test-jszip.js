@@ -1,5 +1,5 @@
-const fs = require('fs');
-const JSZip = require('jszip');
+const fs = require("react-native-level-fs");
+const JSZip = require("jszip");
 
 // eslint-disable-next-line node/no-unsupported-features/node-builtins
 const fsp = fs.promises;
@@ -10,11 +10,11 @@ const jsZip = new JSZip();
 
 fsp
   .readFileAsync(filename)
-  .then(data => {
-    console.log('data', data);
+  .then((data) => {
+    console.log("data", data);
     return jsZip.loadAsync(data);
   })
-  .then(zip => {
+  .then((zip) => {
     zip.forEach((path, entry) => {
       if (!entry.dir) {
         // console.log(path, entry)

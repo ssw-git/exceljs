@@ -1,23 +1,23 @@
-const fs = require('fs');
+const fs = require("react-native-level-fs");
 
-const testXformHelper = require('../test-xform-helper');
+const testXformHelper = require("../test-xform-helper");
 
-const TableXform = verquire('xlsx/xform/table/table-xform');
+const TableXform = verquire("xlsx/xform/table/table-xform");
 
 const expectations = [
   {
-    title: 'showing filter',
+    title: "showing filter",
     create() {
       return new TableXform();
     },
     initialModel: null,
-    preparedModel: require('./data/table.1.1'),
+    preparedModel: require("./data/table.1.1"),
     xml: fs.readFileSync(`${__dirname}/data/table.1.2.xml`).toString(),
-    parsedModel: require('./data/table.1.3'),
-    tests: ['render', 'renderIn', 'parse'],
-  },
+    parsedModel: require("./data/table.1.3"),
+    tests: ["render", "renderIn", "parse"]
+  }
 ];
 
-describe('TableXform', () => {
+describe("TableXform", () => {
   testXformHelper(expectations);
 });
