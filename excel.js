@@ -10,4 +10,4 @@
 //   );
 // }
 
-module.exports = require("./lib/exceljs.bare.js");
+module.exports = require("./lib/exceljs.browser.js");
