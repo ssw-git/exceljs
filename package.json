@@ -1,6 +1,6 @@
 {
   "name": "@ssw10j/exceljs",
-  "version": "4.3.7",
+  "version": "4.3.10",
   "description": "Excel Workbook Manager - React Native - Read and Write xlsx and csv Files.",
   "private": false,
   "license": "MIT",
@@ -97,6 +97,7 @@
   "dependencies": {
     "archiver": "^5.0.0",
     "dayjs": "^1.8.34",
+    "@ssw10j/fast-csv": "^4.3.8",
     "jszip": "^3.7.1",
     "readable-stream": "^3.6.0",
     "saxes": "^5.0.1",
